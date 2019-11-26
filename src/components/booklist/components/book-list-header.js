@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
-import TableSortLabel from '@material-ui/core/TableSortLabel'
-import Tooltip from '@material-ui/core/Tooltip'
 import { withStyles } from '@material-ui/core/styles'
 import styles from './styles'
 import {
@@ -23,8 +21,10 @@ class BookListHeader extends Component {
     return onRequestSort(event, property)
   }
 
+  addBookHandler = history => () => history.push('/edit')
+
   render = () => {
-    const { order, orderBy } = this.props
+    const { order, orderBy, history } = this.props
     const { classes, columnHeaders } = this.props
 
     return (
@@ -40,7 +40,14 @@ class BookListHeader extends Component {
               colSpan={column.span || 1}
             >
               {column.id === 'add' ? (
+<<<<<<< HEAD
                 <ActionColumnHeader column={column} />
+=======
+                <ActionColumnHeader
+                  column={column}
+                  addBook={this.addBookHandler(history)}
+                />
+>>>>>>> upstream/07-formik-forms
               ) : (
                 <SortableColumnHeader
                   column={column}

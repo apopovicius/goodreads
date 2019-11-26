@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { withStyles } from '@material-ui/core/styles'
+import Fab from '@material-ui/core/Fab'
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
+import { Link } from 'react-router-dom'
 
 import Fab from '@material-ui/core/Fab'
 import EditIcon from '@material-ui/icons/Edit'
@@ -38,9 +42,17 @@ const Book = ({ classes, book, typesMapping }) => {
         } else if (column.id === 'edit') {
           return (
             <TableCell key={column.id}>
+<<<<<<< HEAD
               <Fab color="secondary" aria-label="edit">
                 <EditIcon />
               </Fab>
+=======
+              <Link to={{ pathname: '/edit', state: { bookId: book.id } }}>
+                <Fab color="secondary" aria-label="edit">
+                  <EditIcon />
+                </Fab>
+              </Link>
+>>>>>>> upstream/07-formik-forms
             </TableCell>
           )
         } else if (column.id === 'delete') {

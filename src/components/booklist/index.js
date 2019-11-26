@@ -11,6 +11,7 @@ import TablePagination from '@material-ui/core/TablePagination'
 import styles from './styles'
 import BookListHeader from './components/book-list-header'
 import Book from './components/book'
+import columnData from '../app/data-mapping'
 
 import columnData from '../app/data-mapping'
 
@@ -57,7 +58,7 @@ class BookList extends Component {
   }
 
   render = () => {
-    const { classes, columnHeaders, books, loading } = this.props
+    const { classes, columnHeaders, books, loading, history } = this.props
     const { order, orderBy, rowsPerPage, page } = this.state
     const start = page * rowsPerPage
     const end = start + rowsPerPage
@@ -75,6 +76,7 @@ class BookList extends Component {
               <BookListHeader
                 columnHeaders={columnHeaders}
                 onRequestSort={this.handleRequestSort}
+                history={history}
                 {...this.state}
               />
               <TableBody>
@@ -82,7 +84,16 @@ class BookList extends Component {
                   .sort(getSorting(order, orderBy))
                   .slice(start, end)
                   .map(book => (
+<<<<<<< HEAD
                     <Book key={book.id} book={book} typesMapping={rowColumns} />
+=======
+                    <Book
+                      key={book.id}
+                      book={book}
+                      typesMapping={rowColumns}
+                      history={history}
+                    />
+>>>>>>> upstream/07-formik-forms
                   ))}
               </TableBody>
             </Table>

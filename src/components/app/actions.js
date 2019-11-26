@@ -39,5 +39,5 @@ export default url => dispatch => {
       )
       dispatch(fetchBooksSuccessAction(reducedBooks))
     })
-    .catch(e => dispatch(fetchBooksFailedAction()))
+    .catch(_ => dispatch(fetchBooksFailedAction()))
 }
